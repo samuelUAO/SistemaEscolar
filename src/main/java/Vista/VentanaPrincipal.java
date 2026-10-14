@@ -145,7 +145,21 @@ if (codigo == null) return;
 String programa = javax.swing.JOptionPane.showInputDialog(
         this, "Programa académico:");
 if (programa == null) return;
+if (direccion.trim().isEmpty()
+        || telefono.trim().isEmpty()
+        || fecha.trim().isEmpty()
+        || codigo.trim().isEmpty()
+        || programa.trim().isEmpty()) {
 
+    javax.swing.JOptionPane.showMessageDialog(
+            this,
+            "Todos los campos son obligatorios.",
+            "Datos incompletos",
+            javax.swing.JOptionPane.WARNING_MESSAGE
+    );
+
+    return;
+}
 Modelo.Estudiante estudiante =
         new Modelo.Estudiante(
                 nombre, direccion, telefono, fecha, codigo, programa);
