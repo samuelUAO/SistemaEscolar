@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Modelo;
-
+import java.text.NumberFormat;
+import java.util.Locale;
 /**
  *
  * @author SAMUEL
@@ -72,13 +73,15 @@ public class Profesor extends Persona {
         return calcularSalario() + calcularPrestaciones();
     }
 
-    @Override
-    public String mostrarDatos() {
-        return super.mostrarDatos()
-                + "\nCédula: " + cedula
-                + "\nÁrea: " + area
-                + "\nSalario total: $" + calcularSalario()
-                + "\nPrestaciones: $" + calcularPrestaciones()
-                + "\nCosto para el colegio: $" + calcularCostoTotal();
-    }
-}
+@Override
+public String mostrarDatos() {
+    NumberFormat moneda =
+            NumberFormat.getCurrencyInstance(Locale.forLanguageTag("es-CO"));
+
+    return super.mostrarDatos()
+        + "\nCédula: " + cedula
+        + "\nÁrea: " + area
+        + "\nSalario total: " + moneda.format(calcularSalario())
+        + "\nPrestaciones: " + moneda.format(calcularPrestaciones())
+        + "\nCosto para el colegio: " + moneda.format(calcularCostoTotal());  
+}}
