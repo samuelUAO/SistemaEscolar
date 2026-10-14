@@ -19,6 +19,24 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     public VentanaPrincipal() {
         initComponents();
     }
+    private void mostrarReporte(String titulo, String contenido) {
+    javax.swing.JTextArea area =
+            new javax.swing.JTextArea(contenido, 20, 45);
+
+    area.setEditable(false);
+    area.setLineWrap(true);
+    area.setWrapStyleWord(true);
+
+    javax.swing.JScrollPane scroll =
+            new javax.swing.JScrollPane(area);
+
+    javax.swing.JOptionPane.showMessageDialog(
+            this,
+            scroll,
+            titulo,
+            javax.swing.JOptionPane.INFORMATION_MESSAGE
+    );
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -86,17 +104,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnReporteEstudiantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteEstudiantesActionPerformed
-javax.swing.JOptionPane.showMessageDialog(
-        this, sistema.reporteEstudiantes(),
-        "Reporte de estudiantes",
-        javax.swing.JOptionPane.INFORMATION_MESSAGE);
+mostrarReporte(
+    "Reporte de estudiantes",
+    sistema.reporteEstudiantes()
+);
     }//GEN-LAST:event_btnReporteEstudiantesActionPerformed
 
     private void btnReporteProfesoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteProfesoresActionPerformed
-javax.swing.JOptionPane.showMessageDialog(
-        this, sistema.reporteProfesores(),
-        "Reporte de profesores",
-        javax.swing.JOptionPane.INFORMATION_MESSAGE);
+mostrarReporte(
+    "Reporte de profesores",
+    sistema.reporteProfesores()
+);
     }//GEN-LAST:event_btnReporteProfesoresActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
