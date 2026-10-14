@@ -194,6 +194,21 @@ if (cedula == null) return;
 String area = javax.swing.JOptionPane.showInputDialog(
         this, "Área del profesor:");
 if (area == null) return;
+if (direccion.trim().isEmpty()
+        || telefono.trim().isEmpty()
+        || fecha.trim().isEmpty()
+        || cedula.trim().isEmpty()
+        || area.trim().isEmpty()) {
+
+    javax.swing.JOptionPane.showMessageDialog(
+            this,
+            "Todos los campos son obligatorios.",
+            "Datos incompletos",
+            javax.swing.JOptionPane.WARNING_MESSAGE
+    );
+
+    return;
+}
 
 try {
     String salarioTexto = javax.swing.JOptionPane.showInputDialog(
